@@ -8,13 +8,15 @@
             font-family: "Montserrat", sans-serif;
             background-color: black;
             color: #efefef;
+            --player-height: 72px;
         }
 
         .main {
             display: flex;
             height: 100vh;
+            height: 100dvh;
             margin: 0;
-            padding-bottom: 80px; /* Prevents content from hiding behind the music player */
+            padding-bottom: calc(var(--player-height) + 8px); /* Keeps scrollable content above the fixed player */
         }
 
         /* --- Sidebar Styles --- */
@@ -236,6 +238,7 @@
         }
         .album .card{
             display: flex;
+            flex-direction: column;
             background-color: #1f1f1f;
             
             height: 15rem;
@@ -292,7 +295,7 @@
             bottom: 0px;
             left: 5px;   /* Fixed the width bug by using left/right instead of margins */
             right: 5px;
-            height: 72px;
+            height: var(--player-height);
             border-top-left-radius: 1rem;
             border-top-right-radius: 1rem;
             display: flex;
@@ -382,7 +385,47 @@
 /* Responsive additions */
 .main-content,.side-bar,.album,.card-container,.music-player,.music,.player,.controls{min-width:0}
 @media (max-width:1200px){.side-bar{width:240px}.album{margin-left:.75rem;margin-right:.75rem}.album .card{width:11rem;height:14.5rem}.music{width:28%}.player{width:44%}.controls{width:28%}.slide .cur-time{width:min(20rem,45vw)}}
-@media (max-width:768px){.main{height:calc(100vh - 72px);padding-bottom:0}.side-bar{width:100%;height:auto;margin:0;flex-direction:column}.side-bar .nav{flex-direction:row;justify-content:space-around;gap:.5rem;padding:.75rem;border-radius:0}.side-bar .nav a{justify-content:center;font-size:.85rem}.side-bar .upper{display:none}.main-content{margin:0;border-radius:0}.sticky-nav{margin-top:0;padding:.6rem .75rem}.sticky-nav-options{margin-right:0}.sticky-nav .badge{margin-right:.35rem;font-size:.75rem}.album{margin:1rem .75rem}.album h4{font-size:1.1rem;margin-top:1.25rem}.album #first{margin-left:0}.card-container{justify-content:flex-start;gap:.75rem;overflow-x:auto;flex-wrap:nowrap;padding-bottom:.5rem}.album .card{flex:0 0 10.5rem;width:10.5rem;height:14rem}.main-content .card img{width:6.5rem;height:6.5rem}.music-player{height:72px;left:0;right:0;border-radius:0;padding:0 .6rem}.music{width:32%;column-gap:.5rem}.music img{height:2.5rem;width:2.5rem;object-fit:cover}.music .para{font-size:.55rem;min-width:0}.music .para p{margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.music-icons{display:none}.player{width:45%}.player-icon{display:flex;align-items:center;gap:.35rem}.player-icon .oth{height:.65rem}#pause-btn{height:1.7rem}.slide{display:flex;align-items:center;width:100%;gap:.25rem;font-size:.6rem}.slide .cur-time{width:100%;min-width:0}.controls{width:23%;justify-content:flex-end}.controls i:nth-child(1),.controls i:nth-child(2),.controls i:nth-child(3){display:none}.controls input{width:4rem}}
-@media (max-width:576px){.main{flex-direction:column;height:calc(100vh - 72px)}.side-bar{order:0}.main-content{order:1;flex:1}.sticky-nav-icons img{height:1.25rem;width:1.25rem}.sticky-nav-options .dwn{padding:.3rem .55rem;font-size:.7rem;height:2rem}.sticky-nav-options .fa-user{font-size:.9rem;margin-left:.25rem}.album{margin:.75rem}.album h4{font-size:1rem}.album .card{flex-basis:9.5rem;width:9.5rem;height:13rem}.main-content .card img{width:5.75rem;height:5.75rem}.card h6{font-size:.8rem}.card p{font-size:.68rem;line-height:1.25}.main-content .footer{height:8rem}.footer .line{width:85%}.music{width:43%}.music .para{max-width:6rem}.player{width:42%}.controls{width:15%}.controls input,.controls i{display:none}.player-icon .oth{display:none}#pause-btn{display:block;height:1.8rem}.slide span{font-size:.5rem}}
+@media (max-width:768px){.main{flex-direction:column;height:100vh;height:100dvh;padding-bottom:var(--player-height)}.side-bar{width:100%;height:auto;margin:0;flex:0 0 auto}.side-bar .nav{flex-direction:row;justify-content:space-around;gap:.5rem;padding:.75rem;border-radius:0}.side-bar .nav a{justify-content:center;font-size:.85rem}.side-bar .upper{display:none}.main-content{margin:0;border-radius:0;min-height:0}.sticky-nav{margin-top:0;padding:.6rem .75rem}.sticky-nav-options{margin-right:0}.sticky-nav .badge{margin-right:.35rem;font-size:.75rem}.album{margin:1rem .75rem}.album h4{font-size:1.1rem;margin-top:1.25rem}.album #first{margin-left:0}.card-container{justify-content:flex-start;gap:.75rem;overflow-x:auto;flex-wrap:nowrap;padding-bottom:.5rem}.album .card{flex:0 0 10.5rem;width:10.5rem;height:14rem}.main-content .card img{width:6.5rem;height:6.5rem}.music-player{height:var(--player-height);left:0;right:0;border-radius:0;padding:0 .6rem}.music{width:32%;column-gap:.5rem}.music img{height:2.5rem;width:2.5rem;object-fit:cover}.music .para{font-size:.55rem;min-width:0}.music .para p{margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.music-icons{display:none}.player{width:45%}.player-icon{display:flex;align-items:center;gap:.35rem}.player-icon .oth{height:.65rem}#pause-btn{height:1.7rem}.slide{display:flex;align-items:center;width:100%;gap:.25rem;font-size:.6rem}.slide .cur-time{width:100%;min-width:0}.controls{width:23%;justify-content:flex-end}.controls i:nth-child(1),.controls i:nth-child(2),.controls i:nth-child(3){display:none}.controls input{width:4rem}}
+@media (max-width:600px){.main{flex-direction:column;height:100vh;height:100dvh}.side-bar{order:0}.main-content{order:1;flex:1}.sticky-nav-icons img{height:1.25rem;width:1.25rem}.sticky-nav-options .dwn{padding:.3rem .55rem;font-size:.7rem;height:2rem}.sticky-nav-options .fa-user{font-size:.9rem;margin-left:.25rem}.album{margin:.75rem}.album h4{font-size:1rem}.album .card{flex-basis:9.5rem;width:9.5rem;height:13rem}.main-content .card img{width:5.75rem;height:5.75rem}.card h6{font-size:.8rem}.card p{font-size:.68rem;line-height:1.25}.main-content .footer{height:8rem}.footer .line{width:85%}.music{width:43%}.music .para{max-width:6rem}.player{width:42%}.controls{width:15%}.controls input,.controls i{display:none}.player-icon .oth{display:none}#pause-btn{display:block;height:1.8rem}.slide span{font-size:.5rem}}
 @media (max-width:380px){.side-bar .nav a{font-size:.75rem;gap:.4rem}.sticky-nav{padding:.5rem}.sticky-nav-options .dwn{font-size:.62rem;padding:.25rem .4rem}.album .card{flex-basis:8.75rem;width:8.75rem}.music{width:48%}.music .para{display:none}.player{width:42%}.controls{width:10%}}
 .album h4,.card h6,.card p{overflow-wrap:anywhere}
+
+.card-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.card-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Keep each player area in its own track so controls never overlap. */
+.music-player {
+    display: grid;
+    grid-template-columns: minmax(10rem, 1fr) minmax(16rem, 2fr) minmax(10rem, 1fr);
+    gap: 1rem;
+    overflow: hidden;
+}
+
+.music, .player, .controls {
+    width: auto;
+    min-width: 0;
+}
+
+.album {
+    padding-bottom: var(--player-height);
+}
+
+@media (max-width: 768px) {
+    .music-player {
+        grid-template-columns: minmax(0, 1fr) minmax(10rem, 1.4fr) auto;
+        gap: .5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .music-player {
+        grid-template-columns: minmax(0, 1fr) minmax(8.5rem, 1fr) auto;
+        gap: .25rem;
+    }
+}
